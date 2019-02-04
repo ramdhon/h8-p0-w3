@@ -5,31 +5,24 @@
 //----------------------------------------------------------
 
 function targetTerdekat(arr) {
-    var resultDist = 0;
     var i = 0;
-    var j = 0;
-
-    while (i < arr.length-1) {
-        if (arr[i] === "x") {
-            for (var j = i; j < arr.length; j++) {
-            
+    var distance = 0;
+    var firstPosition = [0, "", false];
+    var nextPosition = [0, "", false];
+    
+    while (i < arr.length) {
+        if ((!firstPosition[2] || arr[i] === firstPosition[1]) && (arr[i] === "x" || arr[i] === "o")) {
+            firstPosition = [i, arr[i], true];
+        } else if (firstPosition[2] && (arr[i] === "x" || arr[i] === "o")) {
+            nextPosition = [i, arr[i], true];
+            if (nextPosition[0] - firstPosition[0] < distance || distance === 0) {
+                distance = nextPosition[0] - firstPosition[0];
             }
-        } else if (arr[i] === "o") {
-            j = i;
-            while (j < arr.length) {
-                resultDist++;
-                if (arr[j] === "x") {
-                    
-                } else if (arr[j]) {
-                    
-                } else {
-                    j++;
-                }
-            }
-        } else {
-            i++
+            firstPosition = nextPosition.slice(0);
         }
+        i++;
     }
+    return distance;
 }
 
 // TEST CASES
