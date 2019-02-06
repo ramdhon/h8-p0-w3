@@ -5,13 +5,11 @@
 //----------------------------------------------------------
 
 function balikString(inpString) {
-    endIndex = inpString.length;
-    for (var index = endIndex-1; index >= 0; index--) {
-        inpString += inpString[index]; //---> mengakses elemen pada index terkini
+    var outString = "";
+    for (var index = inpString.length - 1; index >= 0; index--) {
+        outString += inpString[index]; //---> mengakses elemen pada index terkini
     }
-    inpString = inpString.substr(endIndex);
-
-    return inpString;
+    return outString;
 }
 
 var input = "hello  world!";

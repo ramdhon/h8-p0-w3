@@ -5,8 +5,8 @@
 //----------------------------------------------------------
 
 function dataHandling2(inpArr) {
-    var tmpArr = 0;
-    var tmpArrSort = 0;
+    var tmpArr = []; // <== diupdate nilai inisiasinya menjadi array kosong
+    var tmpArrSort = []; // <== diupdate nilai inisiasinya menjadi array kosong
     var tmpArrStr = "";
     // inpArr[1] += "Elsharawy";
     inpArr.splice(1, 1, "Roman Alamsyah Elsharawy");
